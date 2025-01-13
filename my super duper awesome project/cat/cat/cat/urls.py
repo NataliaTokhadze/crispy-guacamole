@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', meow_views.index, name='index'),
+    path('', meow_views.index.as_view(), name='index'),
     path('meow/', include('meow.urls')),
     path('accounts/', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

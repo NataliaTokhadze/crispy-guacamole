@@ -48,9 +48,9 @@
 		</div>
 
 		{% if object.uploader == user %}
-			<a href="{%url 'video-update' object.pk %}"><ion-icon name="pencil-outline"></ion-icon></a>
-			<a href="{%url 'video-delete' object.pk %}"><ion-icon name="close-outline"></ion-icon></a>
-			{% endif %}
+			<a class="video-icons icon-color" href="{% url 'video-update' object.pk %}"><ion-icon name="pencil-outline"></ion-icon></a>
+			<a class="video-icons icon-color" href="{% url 'video-delete' object.pk %}"><ion-icon name="close-outline"></ion-icon></a>
+		{% endif %}
 	</div>
 
 {% endblock content %}
