@@ -3,7 +3,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
       </ul>
@@ -14,6 +14,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'account_logout' %}">Sign Out</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' user.profile.pk %}"><img src="{{ user.profile.image.url }}" width="35" height="35" class="d-inline-block rounded-circle" alt="Profile"></a>
         </li>
         {% else %}
         <li class="nav-item">

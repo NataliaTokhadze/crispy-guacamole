@@ -42,6 +42,7 @@ SITE_ID = 1
 
 INSTALLED_APPS = [
     'meow',
+    'profiles',
     'crispy_forms',
     'crispy_bootstrap4',
 
@@ -153,3 +154,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Sign In Redirect
 LOGIN_REDIRECT_URL = 'index'
+
+# Additions to Sign Up Form
+ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.ProfileForm'

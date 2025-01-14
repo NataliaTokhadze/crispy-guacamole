@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', meow_views.index.as_view(), name='index'),
     path('meow/', include('meow.urls')),
+    path('profiles/', include('profiles.urls')),
     path('accounts/', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
