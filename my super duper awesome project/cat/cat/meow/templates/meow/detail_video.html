@@ -1,4 +1,5 @@
 {% extends 'meow/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 	<div class="container">
@@ -52,5 +53,30 @@
 			<a class="video-icons icon-color" href="{% url 'video-delete' object.pk %}"><ion-icon name="close-outline"></ion-icon></a>
 		{% endif %}
 	</div>
+</div>
+	<div class="row mt-3">
+		<div class="col-md-8 col-sm-12">
+			{% if user.is_authenticated %}
+			<form method="POST">
+				{% csrf_token %}
+				<legend class="border-bottom mb-4">Leave a Comment!</legend>
+				{{ form | crispy }}
+				<button class="btn btn-outline-info btn-block">Post</button>
+			</form>
+			{% else %}
+			<a class="btn btn-outline-info btn-block" href="{% url 'account_login' %}">Sign In To Post a Comment!</a>
+			{% endif %}
+		</div>
+	</div>
+
+	{% for comment in comments %}
+	<div class="row mt-3">
+		<div class="col-md-8 col-sm-12 border-bottom">
+			<h5>{{ comment.user }} says:</h5>
+			<p>{{ comment.comment }}</p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
 
 {% endblock content %}
